@@ -26,18 +26,18 @@ mongoose.connection
   const GigSchema = new mongoose.Schema({
     event: String,
     location: String,
-    data: Number,
+    date: String,
   })
 
   const Gigs = mongoose.model("Gigs", GigSchema)
 
 // Landing / Redirect Route
-  app.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.redirect('/gigs')
   })
 
 // Index route
-  app.get('/gigs', async (res, req) => {
+  app.get('/gigs', async (req, res) => {
     try{
         res.json(await Gigs.find({}))
     }catch(error){
@@ -46,7 +46,7 @@ mongoose.connection
   })
 
 // Create Route
-  app.post('/gigs', async (res, req) => {
+  app.post('/gigs', async (req, res) => {
     try{
         res.json(await Gigs.create(req.body))
     }catch(error){
@@ -66,7 +66,7 @@ mongoose.connection
 // Delete Route
   app.delete('/gigs/:id', async (req, res) => {
     try{
-        res.json(await Gigs.findByIdAndDelete)
+        res.json(await Gigs.findByIdAndDelete(req.params.id))
     }catch(error){
         res.status(400).json(error)
     }
@@ -81,5 +81,10 @@ mongoose.connection
     }
   })
 
+
+  // App Listener
+  app.listen(PORT, () => {
+    console.log(`Hey there, Delilah, what's it like in Port ${PORT}?`)
+  })
 
 
