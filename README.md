@@ -29,13 +29,14 @@
 ![model image](https://i.imgur.com/JamNqsp.png)
 
 #### Routes
-|  base route - https://cetamdapi.onrender.com/gigs   |  |      |
-|---|---|---|---|---|
-| Index  |   | router.get('/')  |   |   |
-|  Show |   | router.get('/:id')  |   |   |
-| Create  |   | router.post('/')  |   |   |
-|  Update |   | router.put('/:id')  |   |   |
-|  Delete |   | router.delete('/:id')  |   |   |
+##### Base route - https://cetamdapi.onrender.com/gigs 
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| router.get('/') | GET | returns all gigs |
+| router.get('/:id') | GET | returns a single gig|
+| router.post('/')| POST | creates a new gig|
+| router.put('/:id')| PUT | updates a specific gig |
+| router.delete('/:id') | DELETE | deletes a specific gig |
 
 
  #### User Stories
