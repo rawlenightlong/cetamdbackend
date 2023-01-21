@@ -13,8 +13,20 @@
  - CRUD functionality
  - Deployed on Render.com
 
+ ### Daily Plan
+
+| Day | Goal |
+|-----|------|
+| 1 | Set Up Basic Running front end and back end repos |
+| 2 | Render data to screen |
+| 3 | Create all forms |
+| 4 | Bug testing, add possible stretch goals |
+| 5 | Website Styling / Responsive |
+| 6 | Final debugging and styling |
+| 7 | Presentation Day |
+
 #### Models
-![model image](https://i.imgur.com/oLtGWdA.png)
+![model image](https://i.imgur.com/JamNqsp.png)
 
 #### Routes
 |  base route - https://cetamdapi.onrender.com/gigs   |  |      |
