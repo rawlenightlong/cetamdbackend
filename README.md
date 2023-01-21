@@ -13,6 +13,18 @@
  - CRUD functionality
  - Deployed on Render.com
 
+#### Models
+![model image](https://i.imgur.com/xYZLfk1.png)
+
+#### Routes
+|     |  |      |
+|---|---|---|---|---|
+| Index  |   | router.get('/')  |   |   |
+|  Show |   | router.get('/:id')  |   |   |
+| Create  |   | router.post('/')  |   |   |
+|  Update |   | router.put('/:id')  |   |   |
+|  Delete |   | router.delete('/:id')  |   |   |
+
 
  #### User Stories
  - As a user, I should be able to create, read, update, and delete upcoming and past gigs
