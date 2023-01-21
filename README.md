@@ -17,7 +17,7 @@
 ![model image](https://i.imgur.com/xYZLfk1.png)
 
 #### Routes
-|     |  |      |
+|  base route - https://cetamdapi.onrender.com/gigs   |  |      |
 |---|---|---|---|---|
 | Index  |   | router.get('/')  |   |   |
 |  Show |   | router.get('/:id')  |   |   |
