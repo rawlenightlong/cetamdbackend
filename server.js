@@ -7,6 +7,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 require('./Database/config')();
 require('dotenv').config();
+const authRouter = require("./controllers/user") 
 const app = express();
 //-----------------------////////
 // Environment Variables
@@ -32,6 +33,13 @@ app.use(express.json());
 app.use('/', landingPage);
 app.use('/api/v1/', landingPage);
 app.use('/gigs', gigsPage);
+app.use("/auth", authRouter);
+
+// Auth Route
+
+app.get("/", auth, (req,res)=> {
+    res.json(req.payload)
+})
 
 //-----------------------////////
 // The app is always listening
