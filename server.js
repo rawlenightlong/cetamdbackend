@@ -8,6 +8,7 @@ const morgan = require('morgan');
 require('./Database/config')();
 require('dotenv').config();
 const authRouter = require("./controllers/user") 
+const auth = require("./Auth/authMiddleware")
 const app = express();
 //-----------------------////////
 // Environment Variables
