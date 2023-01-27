@@ -21,20 +21,20 @@ const GigSchema = new mongoose.Schema({
 			},
 			Time: {
 				fullTime: { type: String },
-				hours: { type: String },
+				hour: { type: String },
 				minute: { type: String },
 			},
 		},
 		integerDateTime: {
 			Date: {
-				fullDate: { type: Number },
+				fullDate: { type: String },
 				day: { type: Number },
 				month: { type: Number },
 				year: { type: Number },
 			},
 			Time: {
-				fullTime: { type: Number },
-				hours: { type: Number },
+				fullTime: { type: String },
+				hour: { type: Number },
 				minute: { type: Number },
 			},
 		},

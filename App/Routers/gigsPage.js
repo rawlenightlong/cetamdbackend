@@ -19,6 +19,7 @@ router.use(express.json());
 //-----------------------////////
 router.get('/', async (req, res, next) => {
 	try {
+		console.log('get triggered');
 		res.json(await Gigs.find({}));
 	} catch (err) {
 		console.log(
@@ -34,6 +35,7 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
 	try {
+		console.log('post triggered');
 		res.json(await Gigs.create(req.body));
 	} catch (err) {
 		console.log(
