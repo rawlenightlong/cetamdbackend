@@ -1,5 +1,6 @@
 // ===================AUTH MIDDLEWARE==============
 require("dotenv").config()
+const {SECRET} = process.env
 const jwt = require("jsonwebtoken")
 
 const auth = async (req, res, next) => {
