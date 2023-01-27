@@ -10,6 +10,7 @@ const GigSchema = new mongoose.Schema({
 		state: { type: String },
 		city: { type: String },
 		venue: { type: String },
+		coordinates: {type: Object}
 	},
 	date: {
 		stringDateTime: {
