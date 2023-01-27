@@ -8,6 +8,7 @@ const morgan = require('morgan');
 require('./Database/config')();
 require('dotenv').config();
 const authRouter = require("./App/controllers/user") 
+const router =  require("./App/Routers/gigsPage")
 const auth = require("./App/Auth/authMiddleware")
 const app = express();
 //-----------------------////////
@@ -35,6 +36,7 @@ app.use('/', landingPage);
 app.use('/api/v1/', landingPage);
 app.use('/gigs', gigsPage);
 app.use("/auth", authRouter);
+app.use("/gigs", router)
 
 // Auth Route
 
