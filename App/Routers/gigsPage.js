@@ -2,7 +2,9 @@
 // Modules
 //-----------------------////////
 const express = require('express');
+const { reset } = require('nodemon');
 const Gigs = require('../../Database/Models/gigs');
+const auth = require("../Auth/authMiddleware")
 //-----------------------////////
 // Routers
 //-----------------------////////
@@ -17,8 +19,10 @@ router.use(express.json());
 //-----------------------////////
 // All Gigs Get Route
 //-----------------------////////
-router.get('/', async (req, res, next) => {
+router.get('/', auth, async (req, res, next) => {
 	try {
+		const {username} = req.payload
+		res.status(200).json(await Gigs.find({username}))
 		console.log('get triggered');
 		res.json(await Gigs.find({}));
 	} catch (err) {
@@ -33,8 +37,11 @@ router.get('/', async (req, res, next) => {
 // Post Route
 //-----------------------////////
 
-router.post('/', async (req, res, next) => {
+router.post('/:id', auth, async (req, res, next) => {
 	try {
+		const {username} = req.payload
+		req.body.username = username
+		res.status(200).json(await Gigs.create(req.body))
 		console.log('post triggered');
 		res.json(await Gigs.create(req.body));
 	} catch (err) {
@@ -50,6 +57,10 @@ router.post('/', async (req, res, next) => {
 //-----------------------////////
 router.put('/:id', async (req, res, next) => {
 	try {
+		const {username} = req.payload
+		req.body.username = username
+		const { id } = req.params
+		res.status(200).json(await Gigs.findByIdAndUpdate(req.body))
 		res.json(
 			await Gigs.findByIdAndUpdate(req.params.id, req.body, { new: true })
 		);
@@ -64,8 +75,12 @@ router.put('/:id', async (req, res, next) => {
 //-----------------------////////
 // Delete Route
 //-----------------------////////
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', auth, async (req, res, next) => {
 	try {
+		// const {username} = req.payload
+		// req.body.username = username
+		const { id } = req.params
+		res.status(200).json(await Gigs.findByIdAndDelete(id))
 		res.json(await Gigs.findByIdAndDelete(req.params.id));
 	} catch (err) {
 		console.log(
