@@ -2,8 +2,8 @@ require("dotenv").config()
 const User = require("../../Database/Models/user")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
-const {Router} = require("express")
-const router = Router()
+const express = require("express")
+const router = express.Router()
 const {SECRET} = process.env
 
 router.post("/signup", async (req,res) => {
