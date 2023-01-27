@@ -29,6 +29,7 @@ const gigsPage = require('./App/Routers/gigsPage');
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(express.urlencoded({extended: false}))
 //-----------------------////////
 // Route Handlers
 //-----------------------////////
