@@ -65,7 +65,8 @@ router.put('/:id', async (req, res, next) => {
 			dbReturn.location = req.body.location;
 			dbReturn.date = req.body.date;
 			console.log('updated gig\n' + dbReturn);
-			res.json(await dbReturn.save());
+			const dbSave = await dbReturn.save();
+			res.json(dbSave);
 			console.log('it worked');
 		} catch (err) {
 			console.log(err.message);
