@@ -35,7 +35,7 @@ router.get('/', async (req, res, next) => {
 // Post Route
 //-----------------------////////
 
-router.post('/:id', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
 	try {
 		console.log('post triggered');
 		res.json(await Gigs.create(req.body));
