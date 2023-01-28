@@ -10,7 +10,7 @@ const GigSchema = new mongoose.Schema({
 		state: { type: String },
 		city: { type: String },
 		venue: { type: String },
-		coordinates: {type: Object}
+		coordinates: { type: Object },
 	},
 	date: {
 		stringDateTime: {
@@ -42,6 +42,6 @@ const GigSchema = new mongoose.Schema({
 	},
 });
 
-const Gigs = mongoose.model('Gigs', GigSchema);
+const Gigs = mongoose.model('gigs', GigSchema);
 
 module.exports = Gigs;
