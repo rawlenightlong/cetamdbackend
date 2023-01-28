@@ -7,9 +7,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 require('./Database/config')();
 require('dotenv').config();
-const authRouter = require("./App/controllers/user") 
-const router =  require("./App/Routers/gigsPage")
-const auth = require("./App/Auth/authMiddleware")
+const router = require('./App/Routers/gigsPage');
 const app = express();
 //-----------------------////////
 // Environment Variables
@@ -29,21 +27,19 @@ const gigsPage = require('./App/Routers/gigsPage');
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }));
 //-----------------------////////
 // Route Handlers
 //-----------------------////////
 app.use('/', landingPage);
 app.use('/api/v1/', landingPage);
 app.use('/gigs', gigsPage);
-app.use("/auth", authRouter);
-app.use("/gigs", router)
 
 // Auth Route
 
-app.get("/", auth, (req,res)=> {
-    res.json(req.payload)
-})
+// app.get("/", auth, (req,res)=> {
+//     res.json(req.payload)
+// })
 
 //-----------------------////////
 // The app is always listening
