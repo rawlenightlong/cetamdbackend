@@ -9,7 +9,7 @@ const auth = async (req, res, next) => {
         const token = req.headers.authorization.split(" ")[1]
         const payload = await jwt.verify(token, SECRET)
         if(payload){
-            req.body.payload = payload
+            req.payload = payload
             next()
         } else{
             res.status(400).json({error: "VERIFICATION FAILED OR NO PAYLOAD"})
